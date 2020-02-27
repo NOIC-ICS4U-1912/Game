@@ -1,12 +1,14 @@
+package TheProject;
 
-/**
- * 在这里给出对类 MrX 的描述。
- * 
- * @作者（你的名字）
- * @版本（一个版本号或者一个日期）
- */
 import java.awt.*;
 import javax.swing.*;
+/**
+ * Write a description of class Position here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+
 public class MrX extends Thread
 {
     private Position pos;
@@ -19,7 +21,8 @@ public class MrX extends Thread
     private boolean isJumpDie;
     
     public MrX(Position pos){
-        this.pos = new Position(1,1);
+        this.pos = new Position();
+        this.pos.setPos(1,1);
         this.isAlive = true;
         this.dir = "right";
         this.isOnGround = true;
@@ -51,7 +54,7 @@ public class MrX extends Thread
                 i = 150 - i;
                 ys = -i*i + 150*i;
             }
-            this.pos.setPos(this.pos.getX()+xs, this.pos.getY() + ys);
+            this.pos.setPos(this.pos.getPosX()+xs, this.pos.getPosY() + ys);
             Thread.sleep(10);
             if(this.isOnGround){
                 break;

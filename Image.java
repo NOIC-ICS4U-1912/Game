@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.io.File;
 
 /**
- * Write a description of class StaticValue here.
+ * Write a description of class Image here.
  *
  * Leslie
  */
-public class StaticValue
+public class Image
 {
     public static BufferedImage mrImage = null;
     public static BufferedImage bgImage = null;

@@ -1,18 +1,18 @@
-package TheProject;
 
+/**
+ * 在这里给出对类 MrX 的描述。
+ * 
+ * @作者（你的名字）
+ * @版本（一个版本号或者一个日期）
+ */
 import java.awt.*;
 import javax.swing.*;
-/**
- * Write a description of class Position here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-
-public class MrX extends Thread
+import java.util.ArrayList;
+public class MrX 
 {
     private Position pos;
     private ImageIcon img;
+    private int length;
     private int speed;
     private boolean isAlive;
     private String dir;
@@ -21,8 +21,7 @@ public class MrX extends Thread
     private boolean isJumpDie;
     
     public MrX(Position pos){
-        this.pos = new Position();
-        this.pos.setPos(1,1);
+        this.pos = new Position(1,1);
         this.isAlive = true;
         this.dir = "right";
         this.isOnGround = true;
@@ -54,7 +53,7 @@ public class MrX extends Thread
                 i = 150 - i;
                 ys = -i*i + 150*i;
             }
-            this.pos.setPos(this.pos.getPosX()+xs, this.pos.getPosY() + ys);
+            this.pos.setPos(this.pos.getX()+xs, this.pos.getY() + ys);
             Thread.sleep(10);
             if(this.isOnGround){
                 break;
@@ -76,9 +75,19 @@ public class MrX extends Thread
     
     public void jumpDie(){}
     
-    public String collide(String dir){
-        
-        return this.collide;
+    public boolean collide(String dir,ArrayList<Block> block){
+        int x = this.pos.getX();
+        int y = this.pos.getY();
+        for(int i = 0; i < block.size(); i++){
+            int w = block.get(i).getWidth();
+            int l = block.get(i).getWidth();
+            int xPos = block.get(i).getPosX();
+            int yPos = block.get(i).getPosY();
+            if((xPos < x+this.length)&&(xPos > x-w) &&(yPos < y+this.length)&&(yPos>y-l)){
+                return true;
+            }
+        }
+        return false;
     }
     
 }

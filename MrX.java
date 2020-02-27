@@ -1,18 +1,18 @@
-
-/**
- * 在这里给出对类 MrX 的描述。
- * 
- * @作者（你的名字）
- * @版本（一个版本号或者一个日期）
- */
+ 
+import java.util.ArrayList;
 import java.awt.*;
 import javax.swing.*;
-import java.util.ArrayList;
-public class MrX 
+/**
+ * Write a description of class Position here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+
+public class MrX extends Thread
 {
     private Position pos;
     private ImageIcon img;
-    private int length;
     private int speed;
     private boolean isAlive;
     private String dir;
@@ -22,6 +22,7 @@ public class MrX
     
     public MrX(Position pos){
         this.pos = new Position(1,1);
+        this.pos.setPos(1,1);
         this.isAlive = true;
         this.dir = "right";
         this.isOnGround = true;
@@ -75,19 +76,9 @@ public class MrX
     
     public void jumpDie(){}
     
-    public boolean collide(String dir,ArrayList<Block> block){
-        int x = this.pos.getX();
-        int y = this.pos.getY();
-        for(int i = 0; i < block.size(); i++){
-            int w = block.get(i).getWidth();
-            int l = block.get(i).getWidth();
-            int xPos = block.get(i).getPosX();
-            int yPos = block.get(i).getPosY();
-            if((xPos < x+this.length)&&(xPos > x-w) &&(yPos < y+this.length)&&(yPos>y-l)){
-                return true;
-            }
-        }
-        return false;
+    public String collide(String dir,ArrayList<Block> block){
+        
+        return this.collide;
     }
     
 }

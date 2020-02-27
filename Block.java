@@ -1,20 +1,20 @@
-package TheProject;
-
+ 
+import java.awt.image.BufferedImage;
 
 /**
  * Write a description of class Block here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * Dave
  */
 public class Block extends Map
 {
     private Position blockPos;
     private int length;
     private int width;
+    private BufferedImage img;
     
     public void Block(Position newBlockPos,int newLength,int newWidth){
-    
+        img = Image.bkImage;
         this.blockPos = newBlockPos;
         this.length = newLength;
         this.width = newWidth;
@@ -22,15 +22,15 @@ public class Block extends Map
     
     
     
-    public int getPosX(){
+    /*public int getPosX(){
     
-        return this.blockPos.getPosX();
+        return this.blockPos.getX();
     }
     
     public int getPosY(){
     
-        return this.blockPos.getPosY();
-    }
+        return this.blockPos.getY();
+    }*/
     
     public int getLength(){
     
@@ -55,5 +55,9 @@ public class Block extends Map
         this.length = 0;
         this.width = 0;
         
+    }
+    
+    public BufferedImage getImage() {
+        return this.img;
     }
 }

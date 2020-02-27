@@ -1,12 +1,14 @@
 
+import java.awt.*;
+import javax.swing.*;
+
 /**
  * 在这里给出对类 Position 的描述。
  * 
  * @作者（你的名字）
  * @版本（一个版本号或者一个日期）
  */
-import java.awt.*;
-import javax.swing.*;
+
 
 public class Position
 {

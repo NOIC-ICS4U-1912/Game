@@ -1,4 +1,3 @@
-package TheProject;
 
 import java.util.ArrayList;
 import java.awt.*;
@@ -23,7 +22,7 @@ public class LevelOne extends JFrame
     public void LevelOneMap() { 
     
         for (int i = 0; i < blockOne.size();i++){
-            blockOne.get(i).setLocation​(blockOne.get(i).getPosX(),blockOne.get(i).getPosY());
+            blockOne.get(i).setLocation(blockOne.get(i).getPosX(),blockOne.get(i).getPosY());
             blockOne.get(i).setSize (blockOne.get(i).getLength(),blockOne.get(i).getWidth());
             
             

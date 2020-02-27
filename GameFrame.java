@@ -1,85 +1,71 @@
-package TheProject;
 
-import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import javax.swing.*;
-import java.util.ArrayList;
-/**
- * Write a description of class Position here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 
-public class Charactor extends Thread
-{
-    private Position pos;
-    private ImageIcon img;
-    private int speed;
-    private boolean isAlive;
-    private String dir;
-    private String collide;
-    private boolean isOnGround;
-    private boolean isJumpDie;
-    
-    public void Charactor(){
-        this.pos = new Position();
-        this.pos.setPos(1,1);
-        this.isAlive = true;
-        this.dir = "right";
-        this.isOnGround = true;
-        this.collide = "no";
-        this.isJumpDie = false;
-        this.isAlive = true;
+/**
+ * Write a description of class GameFrame here.
+ *
+ * Leslie
+ * 2.24
+ */
+public class GameFrame extends JFrame implements KeyListener {
+    private boolean isStart = false;
+    MrX mrX = new MrX();
+    public static void main (String [] args) {
+        new GameFrame();
     }
     
-    public Position getPos(){
-        return this.pos;
-    }
-    
-    public String getDir(){
-        return this.dir;
-    }
-   
-    public void setDir(String newDir){
-        this.dir = newDir;
-    }
-    
-    public void jump() throws InterruptedException{
-        for(int i = 0 ; i < 150; i++){
-            int xs = this.speed;
-            int ys = -i*i + 150*i;
-            if(this.collide.equals(this.dir)){
-                xs = 0;
-            }
-            if(this.collide.equals("up")){
-                i = 150 - i;
-                ys = -i*i + 150*i;
-            }
-            this.pos.setPos(this.pos.getPosX()+xs, this.pos.getPosY() + ys);
-            Thread.sleep(10);
-            if(this.isOnGround){
-                break;
-            }
-        }
-    }
-    
-    public void run(){
-        while(true){
-            if(this.collide.equals(this.dir)){
-                this.speed = 0;
-            }else{
-                this.speed = 5;
-            }
-        }
-    }
-    
-    public void onGround(){}
-    
-    public void jumpDie(){}
-    
-    public String collide(String dir, ArrayList <Block> block){
+    public GameFrame() {
+        this.setTitle("The Hardest Game in This Planet! ");
+        this.setSize(1920,1080);
+                
+        this.addKeyListener(this);
         
-        return this.collide;
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
+        
+        Image.init();
+        
+        //this.MrX = new MrX();
+        BufferedImage image = new BufferedImage(1920,1090,BufferedImage.TYPE_3BYTE_BGR);
+        g.drawImage(image,0,0, this);
     }
+    
+    public void paint (Graphics g) {
+        BufferedImage image = new BufferedImage();
+    }
+    
+    /**
+     * when press the keyboard
+     */
+    public void keyPressed (KeyEvent argO) {
+        if (isStart) {
+            if (key.getKeyCode() == 39) {
+                this.mrX.rightMove();
+            }
+            if (key.getKeyCode() == 37) {
+                this.mrX.leftMove();
+            }
+            if (key.getKeyCode() == 32) {
+                this.mrX.jump();
+            }
+        }
+    }
+    
+    /**
+     * when release the keyboard
+     */
+    public void keyReleased(KeyEvent argO) {
+        
+    }
+    
+    /**
+     * when input sth the keyboard
+     */
+    public void keyTyped(KeyEvent argO) {
+    }
+    
     
 }

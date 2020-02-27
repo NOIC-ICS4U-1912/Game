@@ -1,4 +1,3 @@
-package game;
 
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
@@ -13,6 +12,7 @@ import java.io.File;
 public class Image
 {
     public static BufferedImage mrImage = null;
+    public static BufferedImage beginImage = null;
     public static BufferedImage bgImage = null;
     public static BufferedImage bkImage = null;
     public static BufferedImage fgImage = null;
@@ -26,6 +26,7 @@ public class Image
             mrImage = ImageIO.read(new File(imageLocation + "mr.jpg"));
             bgImage = ImageIO.read(new File(imageLocation + "bg.jpg"));
             bkImage = ImageIO.read(new File(imageLocation + "bk.jpg"));
+            beginImage = ImageIO.read(new File(imageLocation + "begin.jpg"));
             fgImage = ImageIO.read(new File(imageLocation + "fg.jpg"));
         } catch (IOException e) {
             e.printStackTrace();

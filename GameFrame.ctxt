@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=GameFrame
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ GameFrame\ here.\r\n\r\n\ Leslie\r\n\ 2.24\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=GameFrame()
+comment3.params=argO
+comment3.target=void\ keyPressed(java.awt.event.KeyEvent)
+comment3.text=\r\n\ when\ press\ the\ keyboard\r\n
+comment4.params=argO
+comment4.target=void\ keyReleased(java.awt.event.KeyEvent)
+comment4.text=\r\n\ when\ release\ the\ keyboard\r\n
+comment5.params=argO
+comment5.target=void\ keyTyped(java.awt.event.KeyEvent)
+comment5.text=\r\n\ when\ input\ sth\ the\ keyboard\r\n
+numComments=6

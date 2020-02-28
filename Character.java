@@ -1,11 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
 import java.util.ArrayList;
-
-import java.awt.*;
-import javax.swing.*;
-import java.util.ArrayList;
-
 public class Character 
 {
     private Position pos;
@@ -51,14 +46,14 @@ public class Character
             if(this.collide.equals("up")){
                 break;
             }
-            this.pos.setPos(this.pos.getPosX()+xs, this.pos.getPosY() + ys);
+            this.pos.setPos(this.pos.getX()+xs, this.pos.getY() + ys);
             Thread.sleep(10);
             this.onGround();
             if(this.isOnGround){
                 break;
             }
         }
-        int tempY = this.getPos().getPosY();
+        int tempY = this.getPos().getY();
         while(true){
             
             int i = 0;
@@ -66,39 +61,43 @@ public class Character
             if(this.isOnGround){
                 break;
             }else{
-                this.pos.setPos(this.pos.getPosX()+this.speed, this.pos.getPosY() - i*i);
+                this.pos.setPos(this.pos.getX()+this.speed, this.pos.getY() - i*i);
                 Thread.sleep(10);
             }
-            if((tempY - this.getPos().getPosY()) >= 1000 ){
+            if((tempY - this.getPos().getY()) >= 1000 ){
                 isJumpDie = true;
             }
         }
     }
     
-    public void run() throws InterruptedException {
+    public void run(boolean isRun)throws InterruptedException{
         while(true){
-            if(this.collide.equals(this.dir)){
+            if(isRun){
+                if(this.collide.equals(this.dir)){
+                    this.speed = 0;
+                }else if(this.dir.equals("left")){
+                    this.speed = -5;
+                }else if(this.dir.equals("right")){
+                    this.speed = 5;
+                }
+            }else{
                 this.speed = 0;
-            }else if(this.dir.equals("left")){
-                this.speed = -5;
-            }else if(this.dir.equals("right")){
-                this.speed = 5;
             }
-            this.pos.setPos(this.pos.getPosX()+speed, this.pos.getPosY());
+            this.pos.setPos(this.pos.getX()+speed, this.pos.getY());
             Thread.sleep(10);
         }
     }
     
     public void onGround(){
-        if(this.getPos().getPosY() == 500){
+        if(this.getPos().getY() == 500){
             isOnGround = true;
         }
     }
     
     
-    public boolean collide(String dir,ArrayList<Block> block){
-        int x = this.pos.getPosX();
-        int y = this.pos.getPosY();
+    public boolean collide(String dir,ArrayList <Block> block){
+        int x = this.pos.getX();
+        int y = this.pos.getY();
         for(int i = 0; i < block.size(); i++){
             int w = block.get(i).getWidth();
             int l = block.get(i).getWidth();

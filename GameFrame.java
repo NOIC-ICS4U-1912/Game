@@ -43,6 +43,8 @@ public class GameFrame extends JFrame
     
     public void main (){
         
+        BufferedImage image = new BufferedImage(1920,1090,BufferedImage.TYPE_3BYTE_BGR);
+        g.drawImage(image,0,0, this);
         GameFrame theGame = new GameFrame();
         this.mrX = new Character(new Position(1,1));
         this.KeyListener =  new KeyListener(this);

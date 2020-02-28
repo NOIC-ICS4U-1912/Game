@@ -1,13 +1,11 @@
-
-/**
- * 在这里给出对类 MrX 的描述。
- * 
- * @作者（你的名字）
- * @版本（一个版本号或者一个日期）
- */
 import java.awt.*;
 import javax.swing.*;
 import java.util.ArrayList;
+
+import java.awt.*;
+import javax.swing.*;
+import java.util.ArrayList;
+
 public class Character 
 {
     private Position pos;
@@ -53,14 +51,14 @@ public class Character
             if(this.collide.equals("up")){
                 break;
             }
-            this.pos.setPos(this.pos.getX()+xs, this.pos.getY() + ys);
+            this.pos.setPos(this.pos.getPosX()+xs, this.pos.getPosY() + ys);
             Thread.sleep(10);
             this.onGround();
             if(this.isOnGround){
                 break;
             }
         }
-        int tempY = this.getPos().getY();
+        int tempY = this.getPos().getPosY();
         while(true){
             
             int i = 0;
@@ -68,16 +66,16 @@ public class Character
             if(this.isOnGround){
                 break;
             }else{
-                this.pos.setPos(this.pos.getX()+this.speed, this.pos.getY() - i*i);
+                this.pos.setPos(this.pos.getPosX()+this.speed, this.pos.getPosY() - i*i);
                 Thread.sleep(10);
             }
-            if((tempY - this.getPos().getY()) >= 1000 ){
+            if((tempY - this.getPos().getPosY()) >= 1000 ){
                 isJumpDie = true;
             }
         }
     }
     
-    public void run(){
+    public void run() throws InterruptedException {
         while(true){
             if(this.collide.equals(this.dir)){
                 this.speed = 0;
@@ -86,21 +84,21 @@ public class Character
             }else if(this.dir.equals("right")){
                 this.speed = 5;
             }
-            this.pos.setPos(this.pos.getX()+speed, this.pos.getY());
+            this.pos.setPos(this.pos.getPosX()+speed, this.pos.getPosY());
             Thread.sleep(10);
         }
     }
     
     public void onGround(){
-        if(this.getPos().getY() == 500){
+        if(this.getPos().getPosY() == 500){
             isOnGround = true;
         }
     }
     
     
     public boolean collide(String dir,ArrayList<Block> block){
-        int x = this.pos.getX();
-        int y = this.pos.getY();
+        int x = this.pos.getPosX();
+        int y = this.pos.getPosY();
         for(int i = 0; i < block.size(); i++){
             int w = block.get(i).getWidth();
             int l = block.get(i).getWidth();

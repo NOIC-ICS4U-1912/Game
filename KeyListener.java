@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import java.awt.Component;
 
 
-pubprivate boolean isStart = false;
+private boolean isStart = false;
     public GameFrame gf;
     
     public KeyListener(GameFrame gf){

@@ -15,7 +15,7 @@ public class Image
     public static BufferedImage beginImage = null;
     public static BufferedImage bgImage = null;
     public static BufferedImage bkImage = null;
-    public static BufferedImage fgImage = null;
+    //public static BufferedImage fgImage = null;
     //lack beginning picture and end picture
     
     public static String imageLocation = System.getProperty("user.dir")+"/game/";
@@ -26,8 +26,8 @@ public class Image
             mrImage = ImageIO.read(new File(imageLocation + "mr.jpg"));
             bgImage = ImageIO.read(new File(imageLocation + "bg.jpg"));
             bkImage = ImageIO.read(new File(imageLocation + "bk.jpg"));
-            beginImage = ImageIO.read(new File(imageLocation + "begin.jpg"));
-            fgImage = ImageIO.read(new File(imageLocation + "fg.jpg"));
+            beginImage = ImageIO.read(new File(imageLocation + "begin.png"));
+            //fgImage = ImageIO.read(new File(imageLocation + "fg.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -3,53 +3,44 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
-
+import java.awt.Graphics;
 import java.util.ArrayList;
-import java.awt.*;
-import java.awt.Image;
-import javax.swing.ImageIcon;
+import java.awt.List;
 
-import javax.swing.JPanel;
-import javax.swing.JFrame;
-import java.awt.Component;
-
-
-public class GameFrame extends JFrame
-{
-    private Character mrX;
-    private KeyListener levelOne;
-    private ArrayList<Block> blockOne = new ArrayList<Block>();
+/**
+ * Write a description of class GameFrame here.
+ *
+ * Leslie
+ * 2.24
+ */
+public class GameFrame extends JFrame  {
+    private boolean isStart = false;
+    Position charaPos = new Position(100,500);
+    Character mrX = new Character(charaPos);
+    private Map nowBG = null;
     
+    public static void main (String [] args) {
+        new GameFrame();
+    }
     
-   
-    public void mapConstructuer() { 
+    public GameFrame() {
         this.setTitle("The Hardest Game in This Planet! ");
         this.setSize(1920,1080);
-        
-        
-        for (int i = 0; i < blockOne.size();i++){
-            blockOne.get(i).setLocation​(blockOne.get(i).getPosX(),blockOne.get(i).getPosY());
-            blockOne.get(i).setSize (blockOne.get(i).getLength(),blockOne.get(i).getWidth());
-        }
-        
+      
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+        
+        Image.init();
+        
+        this.mrX.getPos().setPos(0,480);
     }
     
-    public void addBlock(Block newBlock){
+    public void paint() {
+        BufferedImage image = new BufferedImage(900, 600, BufferedImage.TYPE_3BYTE_BGR);
+        Graphics g2 = image.getGraphics();
         
-        this.blockOne.add(newBlock);
+        if(isStart) {
+            g2.drawImage(Image.bgImage,0,0,this);
+        }
     }
-    
-    public void main (){
-        
-        BufferedImage image = new BufferedImage(1920,1090,BufferedImage.TYPE_3BYTE_BGR);
-        g.drawImage(image,0,0, this);
-        GameFrame theGame = new GameFrame();
-        this.mrX = new Character(new Position(1,1));
-        this.KeyListener =  new KeyListener(this);
-        
-    }
-    
-    
 }
